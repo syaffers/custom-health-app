@@ -10,7 +10,7 @@ A simple FastAPI application for testing health check endpoints. This image is o
 docker run -d -p 8080:8080 syaffers/custom-health-app:latest
 ```
 
-The API will be available at `http://localhost:8080` and the default health check route is `/is_healthy`.
+The API will be available at `http://localhost:8080` and the default health check route is `/health`.
 
 ### Custom health check endpoint
 
@@ -24,7 +24,7 @@ Now the health check route is served at `/healthz`.
 
 ## Features
 
-- Health check endpoint at `/is_healthy`: Returns service status (configurable via `HEALTH_CHECK_ENDPOINT` env var)
+- Health check endpoint at `/health`: Returns service status (configurable via `HEALTH_CHECK_ENDPOINT` env var)
 - Prediction endpoint at `/predict`: Uppercases text input
 - Metrics endpoint at `/metrics`: Returns CPU and memory usage
 
@@ -38,10 +38,11 @@ Now the health check route is served at `/healthz`.
 ### Health Check
 
 ```bash
-curl http://localhost:8080/is_healthy
+curl http://localhost:8080/health
 ```
 
 Response:
+
 ```json
 {
   "status": "ok"
@@ -57,6 +58,7 @@ curl -X POST http://localhost:8080/predict \
 ```
 
 Response:
+
 ```json
 {
   "output": "HÉLLO WORLD"
@@ -70,6 +72,7 @@ curl http://localhost:8080/metrics
 ```
 
 Response:
+
 ```json
 {
   "cpu_usage": 2.5,
@@ -80,5 +83,6 @@ Response:
 ## API Documentation
 
 Interactive API documentation is available at:
+
 - Swagger UI: `http://localhost:8080/docs`
 - ReDoc: `http://localhost:8080/redoc`

@@ -3,7 +3,7 @@ import psutil
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-HEALTH_CHECK_ENDPOINT = os.getenv("HEALTH_CHECK_ENDPOINT", "/is_healthy")
+HEALTH_CHECK_ENDPOINT = os.getenv("HEALTH_CHECK_ENDPOINT", "/health")
 
 app = FastAPI()
 
